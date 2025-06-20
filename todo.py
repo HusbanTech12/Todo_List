@@ -32,6 +32,17 @@ def add(task):
     save_tasks(tasks)
     click.echo(f"Task Added Completely : {task}")
     
+@click.command()
+def list():
+    """List all the tasks"""
+    tasks = load_tasks()
+    if not tasks:
+        click.echo("No tasks found.")
+    return
+for index, task in enumerate(tasks , 1):
+    
+
+    
 cli.add_command(add)
 
 if __name__ == "__main__":
