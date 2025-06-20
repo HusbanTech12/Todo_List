@@ -11,7 +11,7 @@ def load_tasks():
  with open(TODO_FILE , 'r') as file: # file is a varaible
      return json.load(file)
  
- def save_tasks(tasks):
+def save_tasks(tasks):
      with open(TODO_FILE , 'w') as file:
        json.dump(tasks, file , indent=4)      
        
@@ -29,7 +29,10 @@ def add(task):
     """Add a new task to the list"""
     tasks = load_tasks()
     tasks.append({'task' : task , 'done' : False})
-    
     save_tasks(tasks)
     click.echo(f"Task Added Completely : {task}")
     
+cli.add_command(add)
+
+if __name__ == "__main__":
+    cli()    
